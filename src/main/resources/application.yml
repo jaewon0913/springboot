@@ -1,7 +1,21 @@
-server:
-    port: 8686
-
 spring:
+    profiles:
+        active: local # 기본 환경 세팅
+
+
+# local 환경
+---
+spring:
+    profiles: local
+    datasource:
+        data: classpath:data-h2.sql #시작할때 실행시킬 script
+    jpa:
+        show-sql: true
+        hibernate:
+            ddl-auto: create-drop
     h2:
         console:
             enabled: true
+
+server:
+    port: 8686

@@ -65,4 +65,16 @@ public class PostsRepositoryTest {
         assertTrue(posts.getCreatedDate().isAfter(now));
         assertTrue(posts.getModifiedDate().isAfter(now));
     }
+
+    @org.junit.Test
+    public void cleanup1() {
+    }
+
+    @org.junit.Test
+    public void 게시글저장_불러오기1() {
+    }
+
+    @org.junit.Test
+    public void baseTimeEntity_등록() {
+    }
 }
