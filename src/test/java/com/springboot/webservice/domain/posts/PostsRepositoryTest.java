@@ -7,6 +7,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.test.context.junit4.SpringRunner;
 
+import java.time.LocalDate;
 import java.time.LocalDateTime;
 import java.util.List;
 
@@ -55,7 +56,7 @@ public class PostsRepositoryTest {
         postsRepository.save(Posts.builder()
                 .title("테스트 게시글")
                 .content("테스트 본문")
-                .author("jojoldu@gmail.com")
+                .author("jaewon9937@gmail.com")
                 .build());
         //when
         List<Posts> postsList = postsRepository.findAll();
@@ -64,17 +65,5 @@ public class PostsRepositoryTest {
         Posts posts = postsList.get(0);
         assertTrue(posts.getCreatedDate().isAfter(now));
         assertTrue(posts.getModifiedDate().isAfter(now));
-    }
-
-    @org.junit.Test
-    public void cleanup1() {
-    }
-
-    @org.junit.Test
-    public void 게시글저장_불러오기1() {
-    }
-
-    @org.junit.Test
-    public void baseTimeEntity_등록() {
     }
 }
