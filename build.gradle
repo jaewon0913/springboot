@@ -18,7 +18,7 @@ apply plugin: 'org.springframework.boot'
 ext['hibernate.version'] = '5.2.11.Final'
 
 group = 'com.jojoldu'
-version = '0.0.2'
+version = '0.0.3'
 sourceCompatibility = 1.8
 
 repositories {
