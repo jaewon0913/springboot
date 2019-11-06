@@ -1,0 +1,92 @@
+.skill{
+    height: 100%;
+    width: 100%;
+    margin:0 auto;
+    text-align: center;
+    padding-bottom:5rem;
+}
+
+.skill_img_container{
+    text-align: center;
+    display: inline-block;
+    width:114px;
+    height:116px;
+    border-radius: 30px 30px;
+
+    background-size: cover;
+    background-repeat: no-repeat;
+    margin-right: 2rem;
+
+    box-shadow: 0 3px 6px rgba(0,0,0,.2), 0 3px 6px rgba(0,0,0,.2);
+}
+.skill_label{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background:black;
+    border-radius: 30px 30px;
+    width: 114px;
+    height:116px;
+    padding:10px;
+    opacity: 0.8;
+    font-weight: 400;
+    font-size: 1.0rem;
+    color: white;
+    visibility: hidden;
+}
+
+.skill_img_container:hover .skill_label{
+    visibility:visible;
+    animation: fadeout1 0.5s;
+    -moz-animation: fadeout1 0.5s; /* Firefox */
+    -webkit-animation: fadeout1 0.5s; /* Safari and Chrome */
+    -o-animation:fadeout1 0.5s; /* Opera */
+
+}@keyframes fadeout1 {
+     0%{
+         opacity: 0;
+     }
+
+     100% {
+         opacity:0.8;
+     }
+ }
+@-moz-keyframes fadeout1 { /* Firefox */
+    0%{
+        opacity: 0;
+    }
+
+    100% {
+        opacity:0.8;
+    }
+}
+@-webkit-keyframes fadeout1 { /* Safari and Chrome */
+    0%{
+        opacity: 0;
+    }
+
+    100% {
+        opacity:0.8;
+    }
+}
+@-o-keyframes fadeout1 { /* Opera */
+    0%{
+        opacity: 0;
+    }
+
+    100% {
+        opacity:0.8;
+    }
+}
+
+@media (max-width: 576px){
+    .skill_img_container{
+        width: 100px;
+        height: 100px;
+        margin: 5px;
+    }
+    .skill_label{
+        width: 100px;
+        height: 100px;
+    }
+}

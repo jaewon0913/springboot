@@ -12,9 +12,15 @@ public class WebController {
 
     private PostsService postsService;
 
+//    @GetMapping("/")
+//    public String main(Model model){
+//        model.addAttribute("posts",postsService.findAllDesc());
+//        return "main";
+//    }
+
     @GetMapping("/")
-    public String main(Model model){
-        model.addAttribute("posts",postsService.findAllDesc());
-        return "main";
+    public String main_blog(Model model){
+        model.addAttribute("message","안녕하세요");
+        return "index";
     }
 }
