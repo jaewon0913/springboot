@@ -34,13 +34,16 @@
       <div class="collapse navbar-collapse" id="navbarResponsive">
         <ul class="navbar-nav ml-auto">
           <li class="nav-item mx-0 mx-lg-1">
+            <a class="nav-link py-3 px-0 px-lg-3 rounded js-scroll-trigger" href="#home">Home</a>
+          </li>
+          <li class="nav-item mx-0 mx-lg-1">
             <a class="nav-link py-3 px-0 px-lg-3 rounded js-scroll-trigger" href="#about">About</a>
           </li>
           <li class="nav-item mx-0 mx-lg-1">
             <a class="nav-link py-3 px-0 px-lg-3 rounded js-scroll-trigger" href="#skill">Skill</a>
           </li>
           <li class="nav-item mx-0 mx-lg-1">
-            <a class="nav-link py-3 px-0 px-lg-3 rounded js-scroll-trigger" href="#portfolio">Portfolio</a>
+            <a class="nav-link py-3 px-0 px-lg-3 rounded js-scroll-trigger" href="#project">Project</a>
           </li>
         </ul>
       </div>
@@ -48,15 +51,25 @@
   </nav>
 
   <!-- Masthead -->
-  <header class="masthead bg-primary text-white text-center">
+  <header class="masthead bg-primary text-white text-center" id = "home">
     <div class="container d-flex align-items-center flex-column">
 
       <!-- Masthead Avatar Image -->
-      <img class="masthead-avatar mb-5" src="/img/blog/avataaars.svg" alt="" />
+      <img class="masthead-avatar mb-5" src="/img/blog/blog_main.jpeg" alt="/img/blog/avataaars.svg" />
 
       <!-- Masthead Heading -->
-      <h1 class="masthead-heading text-uppercase mb-0">개발자 황재원</h1>
-
+      <div class = "typing-txt" style = "display :none;">
+        <ul>
+          <li>Developer 황재원의</li>
+          <li>포트폴리오 사이트입니다</li>
+        </ul>
+      </div>
+      <div class = "typing">
+        <ul style = "list-style:none;">
+          <li class="masthead-heading text-uppercase mb-0"></li>
+          <li class="masthead-heading text-uppercase mb-0"></li>
+        </ul>
+      </div>
       <!-- Icon Divider -->
       <div class="divider-custom divider-light">
         <div class="divider-custom-line"></div>
@@ -68,6 +81,17 @@
 
       <!-- Masthead Subheading -->
       <p class="masthead-subheading font-weight-light mb-0">Web Programmer</p>
+      <br/>
+
+      <div>
+        <a href = "https://github.com/jaewon0913?tab=repositories">
+          <img src = "/img/blog/skill/github.png" alt = "github" style = "width: 100px; height: 100px;" />
+        </a>
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+        <button onclick = "window.open('/portfolio_pdf','portfolio_pdf')">
+          <img src = "/etc/portfolio_img.png" alt = "portfolio" style = "width: 100px; height: 100px;" />
+        </button>
+      </div>
 
     </div>
   </header>
@@ -130,56 +154,91 @@
       <div class = "skill">
         <div class="skill_content">
           <h2 class = "skill_title">Language</h2>
-            <span class = "skill_content">
-              <div class = "skill_box">
-                <div class = "skill_img_container" style = "background-image: url('/img/blog/skill/java.svg');">
-                  <div class = "skill_label">기본</div>
-                </div>
-                <div class = "skill_img_container" style = "background-image: url('/img/blog/skill/javascript.png');">
-                  <div class = "skill_label">기본</div>
-                </div>
-                <div class = "skill_img_container" style = "background-image: url('/img/blog/skill/python_logo.png');">
-                  <div class = "skill_label">기초</div>
-                </div>
-                <div class = "skill_img_container" style = "background-image: url('/img/blog/skill/swift_logo.png');">
-                  <div class = "skill_label">기초</div>
-                </div>
+          <span class = "skill_content">
+            <div class = "skill_box">
+              <div class = "skill_img_container" style = "background-image: url('/img/blog/skill/java.svg');">
+                <div class = "skill_label">기본</div>
               </div>
-            </span>
+              <div class = "skill_img_container" style = "background-image: url('/img/blog/skill/javascript.png');">
+                <div class = "skill_label">기본</div>
+              </div>
+              <div class = "skill_img_container" style = "background-image: url('/img/blog/skill/python_logo.png');">
+                <div class = "skill_label">기초</div>
+              </div>
+              <div class = "skill_img_container" style = "background-image: url('/img/blog/skill/swift_logo.png');">
+                <div class = "skill_label">기초</div>
+              </div>
+            </div>
+          </span>
           <br/>
           <h2 class = "skill_title">Web Skill</h2>
-            <span class = "skill_content">
-                <div class = "skill_box">
-                  <div class = "skill_img_container" style = "background-image: url('/img/blog/skill/css3_logo.png');">
-                    <div class = "skill_label">기본</div>
-                  </div>
-                  <div class = "skill_img_container" style = "background-image: url('/img/blog/skill/html5_logo.png');">
-                    <div class = "skill_label">기본</div>
-                  </div>
-                  <div class = "skill_img_container" style = "background-image: url('/img/blog/skill/javascript.png');">
-                    <div class = "skill_label">기본</div>
-                  </div>
-                  <div class = "skill_img_container" style = "background-image: url('/img/blog/skill/jquery_logo.png');">
-                    <div class = "skill_label">기본</div>
-                  </div>
-                </div>
-            </span>
+          <span class = "skill_content">
+            <div class = "skill_box">
+              <div class = "skill_img_container" style = "background-image: url('/img/blog/skill/css3_logo.png');">
+                <div class = "skill_label">기본</div>
+              </div>
+              <div class = "skill_img_container" style = "background-image: url('/img/blog/skill/html5_logo.png');">
+                <div class = "skill_label">기본</div>
+              </div>
+              <div class = "skill_img_container" style = "background-image: url('/img/blog/skill/javascript.png');">
+                <div class = "skill_label">기본</div>
+              </div>
+              <div class = "skill_img_container" style = "background-image: url('/img/blog/skill/jquery_logo.png');">
+                <div class = "skill_label">기본</div>
+              </div>
+            </div>
+          </span>
           <br/>
           <h2 class = "skill_title">Framework</h2>
           <span class = "skill_content">
-                <div class = "skill_box">
-                  <div class = "skill_img_container" style = "background-image: url('/img/blog/skill/spring_icon_logo.svg');">
-                    <div class = "skill_label">기본</div>
-                  </div>
-                  <div class = "skill_img_container" style = "background-image: url('/img/blog/skill/springboot_logo.jpg');">
-                    <div class = "skill_label">기초</div>
-                  </div>
-                  <div class = "skill_img_container" style = "background-image: url('/img/blog/skill/nodejs_logo.jpg');">
-                    <div class = "skill_label">기초</div>
-                  </div>
-                </div>
-            </span>
+            <div class = "skill_box">
+              <div class = "skill_img_container" style = "background-image: url('/img/blog/skill/spring_icon_logo.svg');">
+                <div class = "skill_label">기본</div>
+              </div>
+              <div class = "skill_img_container" style = "background-image: url('/img/blog/skill/springboot_logo.jpg');">
+                <div class = "skill_label">기초</div>
+              </div>
+              <div class = "skill_img_container" style = "background-image: url('/img/blog/skill/nodejs_logo.jpg');">
+                <div class = "skill_label">기초</div>
+              </div>
+            </div>
+          </span>
           <br/>
+          <h2 class = "skill_title">DataBase</h2>
+          <span class = "skill_content">
+            <div class = "skill_box">
+              <div class = "skill_img_container" style = "background-image: url('/img/blog/skill/oracle_img.png');">
+                <div class = "skill_label">기본</div>
+              </div>
+              <div class = "skill_img_container" style = "background-image: url('/img/blog/skill/mysql_img.png');">
+                <div class = "skill_label">기초</div>
+              </div>
+            </div>
+          </span>
+          <br/>
+          <h2 class = "skill_title">Operating System</h2>
+          <span class = "skill_content">
+            <div class = "skill_box">
+              <div class = "skill_img_container" style = "background-image: url('/img/blog/skill/macos_img.png');">
+                <div class = "skill_label">기본</div>
+              </div>
+            </div>
+          </span>
+          <br/>
+          <h2 class = "skill_title">Etc</h2>
+          <span class = "skill_content">
+            <div class = "skill_box">
+              <div class = "skill_img_container" style = "background-image: url('/img/blog/skill/github.png');">
+                <div class = "skill_label">기초</div>
+              </div>
+              <div class = "skill_img_container" style = "background-image: url('/img/blog/skill/docker_img.jpg');">
+                <div class = "skill_label">기초</div>
+              </div>
+              <div class = "skill_img_container" style = "background-image: url('/img/blog/skill/aws_img.png');">
+                <div class = "skill_label">기초</div>
+              </div>
+            </div>
+          </span>
         </div>
       </div>
       <!-- /.row -->
@@ -187,12 +246,12 @@
     </div>
   </section>
 
-  <!-- Portfolio Section -->
-  <section class="page-section portfolio" id="portfolio">
+  <!-- Project Section -->
+  <section class="page-section portfolio" id="project">
     <div class="container">
 
-      <!-- Portfolio Section Heading -->
-      <h2 class="page-section-heading text-center text-uppercase text-secondary mb-0">Portfolio - 추가 준비 중 입니다.</h2>
+      <!-- Project Section Heading -->
+      <h2 class="page-section-heading text-center text-uppercase text-secondary mb-0">Project - 계속해서 수정 중 입니다.</h2>
 
       <!-- Icon Divider -->
       <div class="divider-custom">
@@ -203,10 +262,10 @@
         <div class="divider-custom-line"></div>
       </div>
 
-      <!-- Portfolio Grid Items -->
+      <!-- Project Grid Items -->
       <div class="row">
 
-        <!-- Portfolio Item 1 -->
+        <!-- Project Item 1 -->
         <div class="col-md-6 col-lg-4">
           <div class="portfolio-item mx-auto" data-toggle="modal" data-target="#portfolioModal1">
             <div class="portfolio-item-caption d-flex align-items-center justify-content-center h-100 w-100">
@@ -214,11 +273,11 @@
                 <i class="fas fa-plus fa-3x"></i>
               </div>
             </div>
-            <img class="img-fluid" src="/img/blog/portfolio/cabin.png" alt="" />
+            <img class="img-fluid" src="/img/blog/portfolio/boot_img.png" alt="" />
           </div>
         </div>
 
-        <!-- Portfolio Item 2 -->
+        <!-- Project Item 2 -->
         <div class="col-md-6 col-lg-4">
           <div class="portfolio-item mx-auto" data-toggle="modal" data-target="#portfolioModal2">
             <div class="portfolio-item-caption d-flex align-items-center justify-content-center h-100 w-100">
@@ -226,11 +285,11 @@
                 <i class="fas fa-plus fa-3x"></i>
               </div>
             </div>
-            <img class="img-fluid" src="/img/blog/portfolio/cake.png" alt="" />
+            <img class="img-fluid" src="/img/blog/portfolio/final_img.png" alt="" />
           </div>
         </div>
 
-        <!-- Portfolio Item 3 -->
+        <!-- Project Item 3 -->
         <div class="col-md-6 col-lg-4">
           <div class="portfolio-item mx-auto" data-toggle="modal" data-target="#portfolioModal3">
             <div class="portfolio-item-caption d-flex align-items-center justify-content-center h-100 w-100">
@@ -238,45 +297,45 @@
                 <i class="fas fa-plus fa-3x"></i>
               </div>
             </div>
-            <img class="img-fluid" src="/img/blog/portfolio/circus.png" alt="" />
+            <img class="img-fluid" src="/img/blog/portfolio/semi_img.png" alt="" />
           </div>
         </div>
 
-        <!-- Portfolio Item 4 -->
-        <div class="col-md-6 col-lg-4">
-          <div class="portfolio-item mx-auto" data-toggle="modal" data-target="#portfolioModal4">
-            <div class="portfolio-item-caption d-flex align-items-center justify-content-center h-100 w-100">
-              <div class="portfolio-item-caption-content text-center text-white">
-                <i class="fas fa-plus fa-3x"></i>
-              </div>
-            </div>
-            <img class="img-fluid" src="/img/blog/portfolio/game.png" alt="" />
-          </div>
-        </div>
+<!--        &lt;!&ndash; Portfolio Item 4 &ndash;&gt;-->
+<!--        <div class="col-md-6 col-lg-4">-->
+<!--          <div class="portfolio-item mx-auto" data-toggle="modal" data-target="#portfolioModal4">-->
+<!--            <div class="portfolio-item-caption d-flex align-items-center justify-content-center h-100 w-100">-->
+<!--              <div class="portfolio-item-caption-content text-center text-white">-->
+<!--                <i class="fas fa-plus fa-3x"></i>-->
+<!--              </div>-->
+<!--            </div>-->
+<!--            <img class="img-fluid" src="/img/blog/portfolio/game.png" alt="" />-->
+<!--          </div>-->
+<!--        </div>-->
 
-        <!-- Portfolio Item 5 -->
-        <div class="col-md-6 col-lg-4">
-          <div class="portfolio-item mx-auto" data-toggle="modal" data-target="#portfolioModal5">
-            <div class="portfolio-item-caption d-flex align-items-center justify-content-center h-100 w-100">
-              <div class="portfolio-item-caption-content text-center text-white">
-                <i class="fas fa-plus fa-3x"></i>
-              </div>
-            </div>
-            <img class="img-fluid" src="/img/blog/portfolio/safe.png" alt="" />
-          </div>
-        </div>
+<!--        &lt;!&ndash; Portfolio Item 5 &ndash;&gt;-->
+<!--        <div class="col-md-6 col-lg-4">-->
+<!--          <div class="portfolio-item mx-auto" data-toggle="modal" data-target="#portfolioModal5">-->
+<!--            <div class="portfolio-item-caption d-flex align-items-center justify-content-center h-100 w-100">-->
+<!--              <div class="portfolio-item-caption-content text-center text-white">-->
+<!--                <i class="fas fa-plus fa-3x"></i>-->
+<!--              </div>-->
+<!--            </div>-->
+<!--            <img class="img-fluid" src="/img/blog/portfolio/safe.png" alt="" />-->
+<!--          </div>-->
+<!--        </div>-->
 
-        <!-- Portfolio Item 6 -->
-        <div class="col-md-6 col-lg-4">
-          <div class="portfolio-item mx-auto" data-toggle="modal" data-target="#portfolioModal6">
-            <div class="portfolio-item-caption d-flex align-items-center justify-content-center h-100 w-100">
-              <div class="portfolio-item-caption-content text-center text-white">
-                <i class="fas fa-plus fa-3x"></i>
-              </div>
-            </div>
-            <img class="img-fluid" src="/img/blog/portfolio/submarine.png" alt="" />
-          </div>
-        </div>
+<!--        &lt;!&ndash; Portfolio Item 6 &ndash;&gt;-->
+<!--        <div class="col-md-6 col-lg-4">-->
+<!--          <div class="portfolio-item mx-auto" data-toggle="modal" data-target="#portfolioModal6">-->
+<!--            <div class="portfolio-item-caption d-flex align-items-center justify-content-center h-100 w-100">-->
+<!--              <div class="portfolio-item-caption-content text-center text-white">-->
+<!--                <i class="fas fa-plus fa-3x"></i>-->
+<!--              </div>-->
+<!--            </div>-->
+<!--            <img class="img-fluid" src="/img/blog/portfolio/submarine.png" alt="" />-->
+<!--          </div>-->
+<!--        </div>-->
 
       </div>
       <!-- /.row -->
@@ -292,7 +351,7 @@
         <!-- Footer Location -->
         <div class="col-lg-4 mb-5 mb-lg-0">
           <h4 class="text-uppercase mb-4">Location</h4>
-          <p class="lead mb-0">인천광역시 계양구</p>
+          <p class="lead mb-0">Incheon Gyeyang-gu</p>
         </div>
 
 <!--        &lt;!&ndash; Footer Social Icons &ndash;&gt;-->
@@ -315,7 +374,13 @@
         <!-- Footer About Text -->
         <div class="col-lg-4">
           <h4 class="text-uppercase mb-4">About Freelancer</h4>
-          <p class="lead mb-0">항상 최선을 다하자~</p>
+          <p class="lead mb-0">Always do my best</p>
+        </div>
+
+        <!-- Footer About Text -->
+        <div class="col-lg-4">
+          <h4 class="text-uppercase mb-4">Contact</h4>
+          <p class="lead mb-0">jaewon9937@gmail.com</p>
         </div>
 
       </div>
@@ -336,9 +401,9 @@
     </a>
   </div>
 
-  <!-- Portfolio Modals -->
+  <!-- Project Modals -->
 
-  <!-- Portfolio Modal 1 -->
+  <!-- Project Modal 1 -->
   <div class="portfolio-modal modal fade" id="portfolioModal1" tabindex="-1" role="dialog" aria-labelledby="portfolioModal1Label" aria-hidden="true">
     <div class="modal-dialog modal-xl" role="document">
       <div class="modal-content">
@@ -362,11 +427,26 @@
                   <div class="divider-custom-line"></div>
                 </div>
                 <!-- Portfolio Modal - Image -->
-                <img class="img-fluid rounded mb-5" src="/img/blog/portfolio/cabin.png" alt="" />
+                <img class="img-fluid rounded mb-5" src="/img/blog/portfolio/boot_img.png" alt="" />
                 <!-- Portfolio Modal - Text -->
-                <p class="mb-5">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Mollitia neque assumenda ipsam nihil, molestias magnam, recusandae quos quis inventore quisquam velit asperiores, vitae? Reprehenderit soluta, eos quod consequuntur itaque. Nam.</p>
+                <p style = "font-size: large">
+                  <strong>개인적으로 진행하는 Spring Boot + AWS를 활용한 웹 제작</strong>
+                </p>
+                <p class = "mb-5" style = "text-align : left">
+                  프로 젝트 : 포트폴리오 사이트 겸 SpringBoot + AWS 를 활용한 웹 서비스 출시<br/>
+                  개발 기간 : 2019.11.01 ~ 현재 진행형 (총 1명)<br/>
+                  개발 목표 : 포트폴리오 제작<br/>
+                  개발 환경<br/>
+                  - &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;OS &nbsp;&nbsp;&nbsp;&nbsp; : Mac OS<br/>
+                  - &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; IDE &nbsp;&nbsp;&nbsp;: IntelliJ IDEA Ultimate<br/>
+                  - 구현 언어 : Java, HTML5, CSS3, Java Script, MySQL<br/>
+                  - 사용 기술 : SpringBoot(Gradle) , Amazon Web Service(AWS) , Git(Github Desktop)<br/>
+                  <br/>
+                  비    고 : 계속해서 기능 추가 중 입니다.
+
+                </p>
+                <a class = "btn btn-primary" href = "https://github.com/jaewon0913/springboot">GitHub</a>
                 <button class="btn btn-primary" href="#" data-dismiss="modal">
-                  <i class="fas fa-times fa-fw"></i>
                   Close Window
                 </button>
               </div>
@@ -377,7 +457,7 @@
     </div>
   </div>
 
-  <!-- Portfolio Modal 2 -->
+  <!-- Project Modal 2 -->
   <div class="portfolio-modal modal fade" id="portfolioModal2" tabindex="-1" role="dialog" aria-labelledby="portfolioModal2Label" aria-hidden="true">
     <div class="modal-dialog modal-xl" role="document">
       <div class="modal-content">
@@ -391,7 +471,7 @@
             <div class="row justify-content-center">
               <div class="col-lg-8">
                 <!-- Portfolio Modal - Title -->
-                <h2 class="portfolio-modal-title text-secondary text-uppercase mb-0">Tasty Cake</h2>
+                <h2 class="portfolio-modal-title text-secondary text-uppercase mb-0">너만의 도시락 나만의 도시락</h2>
                 <!-- Icon Divider -->
                 <div class="divider-custom">
                   <div class="divider-custom-line"></div>
@@ -401,11 +481,33 @@
                   <div class="divider-custom-line"></div>
                 </div>
                 <!-- Portfolio Modal - Image -->
-                <img class="img-fluid rounded mb-5" src="/img/blog/portfolio/cake.png" alt="" />
+                <img class="img-fluid rounded mb-5" src="/img/blog/portfolio/final_img.png" alt="" />
                 <!-- Portfolio Modal - Text -->
-                <p class="mb-5">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Mollitia neque assumenda ipsam nihil, molestias magnam, recusandae quos quis inventore quisquam velit asperiores, vitae? Reprehenderit soluta, eos quod consequuntur itaque. Nam.</p>
+                <p style = "font-size: large">
+                  <strong>KH 정보 교육원에서 진행한 FINAL PROJECT</strong>
+                </p>
+                <p class = "mb-5" style = "text-align : left">
+                  프로 젝트 : 커스텀 도시락 제작 판매 사이트<br/>
+                  개발 기간 : 2019.08.02 ~ 2019.09.02 (총 6명)<br/>
+                  개발 목표 : 바쁜 현대 사회에 직장인들이 식사를 잘 챙겨 먹지 못하고 있다.<br/>
+                  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                  이러한 이유로 커스텀 도시락 제작 판매 홈페이지를 제작하여 정해진 시간에 원하는 반찬으로<br/>
+                  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                  이루어진 도시락을 지정된 장소에서 받아 규칙적인 식사를 돕는다.<br/>
+                  개발 환경<br/>
+                  - &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;OS &nbsp;&nbsp;&nbsp;&nbsp; : Window 7 , 10 / Mac OS<br/>
+                  - 구현 언어 : Java, HTML5, CSS3, Java Script, Oracle<br/>
+                  - 사용 기술 : Ajax, 주소 API, 캡차, QR코드, 그래프 API(D3.js), WebNotification API, Mail SMPT<br/>
+                  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                              kakao (Login, Pay, Map) API, Spring (Batch, Security, WebSocket), jQuery(Drag and Drop)<br/>
+                  - 사용 도구 : Eclipse, Oracle DataBase 11g, Apache Tomcat 9.0 , Bootstrap4.0 , Summer Note<br/>
+                  구현 기능 : 로그인, 결제, 지도, 검색, 채팅, 커스텀, QR코드, 장바구니<br/>
+
+                </p>
+
+                <button class = "btn btn-primary" onclick = "window.open('/final_pdf','final_pdf')">전체 PDF 문서 보기</button>
+                <a class = "btn btn-primary" href = "https://github.com/jaewon0913/Final_Project">GitHub</a>
                 <button class="btn btn-primary" href="#" data-dismiss="modal">
-                  <i class="fas fa-times fa-fw"></i>
                   Close Window
                 </button>
               </div>
@@ -416,7 +518,7 @@
     </div>
   </div>
 
-  <!-- Portfolio Modal 3 -->
+  <!-- Project Modal 3 -->
   <div class="portfolio-modal modal fade" id="portfolioModal3" tabindex="-1" role="dialog" aria-labelledby="portfolioModal3Label" aria-hidden="true">
     <div class="modal-dialog modal-xl" role="document">
       <div class="modal-content">
@@ -440,11 +542,33 @@
                   <div class="divider-custom-line"></div>
                 </div>
                 <!-- Portfolio Modal - Image -->
-                <img class="img-fluid rounded mb-5" src="/img/blog/portfolio/circus.png" alt="" />
+                <img class="img-fluid rounded mb-5" src="/img/blog/portfolio/semi_img.png" alt="" />
                 <!-- Portfolio Modal - Text -->
-                <p class="mb-5">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Mollitia neque assumenda ipsam nihil, molestias magnam, recusandae quos quis inventore quisquam velit asperiores, vitae? Reprehenderit soluta, eos quod consequuntur itaque. Nam.</p>
+                <p style = "font-size: large">
+                  <strong>KH 정보 교육원에서 진행한 SEMI PROJECT</strong>
+                </p>
+                <p class = "mb-5" style = "text-align : left">
+                  프로 젝트 : 외국인을 위한 국내 여행 정보 사이트<br/>
+                  개발 기간 : 2019.05.27 ~ 2019.06.21 (총 5명)<br/>
+                  개발 목표 : 외국인들이 우리나라를 여행을 하게 되었을 때 우리나 전통미를 강조하며<br/>
+                  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                  다른 사이트와 다른 편리함과 다양한 정보를 제공<br/>
+                  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                  우리나라의 축제 및 관광지 등의 정보를 쉽게 수집 할 수 있도록 할 것 이다.<br/>
+                  개발 환경<br/>
+                  - &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;OS &nbsp;&nbsp;&nbsp;&nbsp; : Window 7 , 10 / Mac OS<br/>
+                  - 구현 언어 : Java, HTML5, CSS3, Java Script, Oracle<br/>
+                  - 사용 기술 : Ajax, Servlet, JSP, Google Map API, Facebook Login API, Kakao (Pay, Map) API<br/>
+                  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                  공공데이터포털 데이터 API, 기상청(날씨누리) API<br/>
+                  - 사용 도구 : Eclipse, Oracle DataBase 11g, Apache Tomcat 9.0 , Summer Note<br/>
+                  구현 기능 : 로그인, 결제, 지도, 게시판, 채팅, 날씨, 투어, 축제, 관광지<br/>
+
+                </p>
+
+                <button class = "btn btn-primary" onclick = "window.open('/semi_pdf','semi_pdf')">전체 PDF 문서 보기</button>
+                <a class = "btn btn-primary" href = "https://github.com/jaewon0913/Semi_Project_git">GitHub</a>
                 <button class="btn btn-primary" href="#" data-dismiss="modal">
-                  <i class="fas fa-times fa-fw"></i>
                   Close Window
                 </button>
               </div>
@@ -455,122 +579,122 @@
     </div>
   </div>
 
-  <!-- Portfolio Modal 4 -->
-  <div class="portfolio-modal modal fade" id="portfolioModal4" tabindex="-1" role="dialog" aria-labelledby="portfolioModal4Label" aria-hidden="true">
-    <div class="modal-dialog modal-xl" role="document">
-      <div class="modal-content">
-        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-          <span aria-hidden="true">
-            <i class="fas fa-times"></i>
-          </span>
-        </button>
-        <div class="modal-body text-center">
-          <div class="container">
-            <div class="row justify-content-center">
-              <div class="col-lg-8">
-                <!-- Portfolio Modal - Title -->
-                <h2 class="portfolio-modal-title text-secondary text-uppercase mb-0">Controller</h2>
-                <!-- Icon Divider -->
-                <div class="divider-custom">
-                  <div class="divider-custom-line"></div>
-                  <div class="divider-custom-icon">
-                    <i class="fas fa-star"></i>
-                  </div>
-                  <div class="divider-custom-line"></div>
-                </div>
-                <!-- Portfolio Modal - Image -->
-                <img class="img-fluid rounded mb-5" src="/img/blog/portfolio/game.png" alt="" />
-                <!-- Portfolio Modal - Text -->
-                <p class="mb-5">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Mollitia neque assumenda ipsam nihil, molestias magnam, recusandae quos quis inventore quisquam velit asperiores, vitae? Reprehenderit soluta, eos quod consequuntur itaque. Nam.</p>
-                <button class="btn btn-primary" href="#" data-dismiss="modal">
-                  <i class="fas fa-times fa-fw"></i>
-                  Close Window
-                </button>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-  </div>
+<!--  &lt;!&ndash; Portfolio Modal 4 &ndash;&gt;-->
+<!--  <div class="portfolio-modal modal fade" id="portfolioModal4" tabindex="-1" role="dialog" aria-labelledby="portfolioModal4Label" aria-hidden="true">-->
+<!--    <div class="modal-dialog modal-xl" role="document">-->
+<!--      <div class="modal-content">-->
+<!--        <button type="button" class="close" data-dismiss="modal" aria-label="Close">-->
+<!--          <span aria-hidden="true">-->
+<!--            <i class="fas fa-times"></i>-->
+<!--          </span>-->
+<!--        </button>-->
+<!--        <div class="modal-body text-center">-->
+<!--          <div class="container">-->
+<!--            <div class="row justify-content-center">-->
+<!--              <div class="col-lg-8">-->
+<!--                &lt;!&ndash; Portfolio Modal - Title &ndash;&gt;-->
+<!--                <h2 class="portfolio-modal-title text-secondary text-uppercase mb-0">Controller</h2>-->
+<!--                &lt;!&ndash; Icon Divider &ndash;&gt;-->
+<!--                <div class="divider-custom">-->
+<!--                  <div class="divider-custom-line"></div>-->
+<!--                  <div class="divider-custom-icon">-->
+<!--                    <i class="fas fa-star"></i>-->
+<!--                  </div>-->
+<!--                  <div class="divider-custom-line"></div>-->
+<!--                </div>-->
+<!--                &lt;!&ndash; Portfolio Modal - Image &ndash;&gt;-->
+<!--                <img class="img-fluid rounded mb-5" src="/img/blog/portfolio/game.png" alt="" />-->
+<!--                &lt;!&ndash; Portfolio Modal - Text &ndash;&gt;-->
+<!--                <p class="mb-5">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Mollitia neque assumenda ipsam nihil, molestias magnam, recusandae quos quis inventore quisquam velit asperiores, vitae? Reprehenderit soluta, eos quod consequuntur itaque. Nam.</p>-->
+<!--                <button class="btn btn-primary" href="#" data-dismiss="modal">-->
+<!--                  <i class="fas fa-times fa-fw"></i>-->
+<!--                  Close Window-->
+<!--                </button>-->
+<!--              </div>-->
+<!--            </div>-->
+<!--          </div>-->
+<!--        </div>-->
+<!--      </div>-->
+<!--    </div>-->
+<!--  </div>-->
 
-  <!-- Portfolio Modal 5 -->
-  <div class="portfolio-modal modal fade" id="portfolioModal5" tabindex="-1" role="dialog" aria-labelledby="portfolioModal5Label" aria-hidden="true">
-    <div class="modal-dialog modal-xl" role="document">
-      <div class="modal-content">
-        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-          <span aria-hidden="true">
-            <i class="fas fa-times"></i>
-          </span>
-        </button>
-        <div class="modal-body text-center">
-          <div class="container">
-            <div class="row justify-content-center">
-              <div class="col-lg-8">
-                <!-- Portfolio Modal - Title -->
-                <h2 class="portfolio-modal-title text-secondary text-uppercase mb-0">Locked Safe</h2>
-                <!-- Icon Divider -->
-                <div class="divider-custom">
-                  <div class="divider-custom-line"></div>
-                  <div class="divider-custom-icon">
-                    <i class="fas fa-star"></i>
-                  </div>
-                  <div class="divider-custom-line"></div>
-                </div>
-                <!-- Portfolio Modal - Image -->
-                <img class="img-fluid rounded mb-5" src="/img/blog/portfolio/safe.png" alt="" />
-                <!-- Portfolio Modal - Text -->
-                <p class="mb-5">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Mollitia neque assumenda ipsam nihil, molestias magnam, recusandae quos quis inventore quisquam velit asperiores, vitae? Reprehenderit soluta, eos quod consequuntur itaque. Nam.</p>
-                <button class="btn btn-primary" href="#" data-dismiss="modal">
-                  <i class="fas fa-times fa-fw"></i>
-                  Close Window
-                </button>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-  </div>
+<!--  &lt;!&ndash; Portfolio Modal 5 &ndash;&gt;-->
+<!--  <div class="portfolio-modal modal fade" id="portfolioModal5" tabindex="-1" role="dialog" aria-labelledby="portfolioModal5Label" aria-hidden="true">-->
+<!--    <div class="modal-dialog modal-xl" role="document">-->
+<!--      <div class="modal-content">-->
+<!--        <button type="button" class="close" data-dismiss="modal" aria-label="Close">-->
+<!--          <span aria-hidden="true">-->
+<!--            <i class="fas fa-times"></i>-->
+<!--          </span>-->
+<!--        </button>-->
+<!--        <div class="modal-body text-center">-->
+<!--          <div class="container">-->
+<!--            <div class="row justify-content-center">-->
+<!--              <div class="col-lg-8">-->
+<!--                &lt;!&ndash; Portfolio Modal - Title &ndash;&gt;-->
+<!--                <h2 class="portfolio-modal-title text-secondary text-uppercase mb-0">Locked Safe</h2>-->
+<!--                &lt;!&ndash; Icon Divider &ndash;&gt;-->
+<!--                <div class="divider-custom">-->
+<!--                  <div class="divider-custom-line"></div>-->
+<!--                  <div class="divider-custom-icon">-->
+<!--                    <i class="fas fa-star"></i>-->
+<!--                  </div>-->
+<!--                  <div class="divider-custom-line"></div>-->
+<!--                </div>-->
+<!--                &lt;!&ndash; Portfolio Modal - Image &ndash;&gt;-->
+<!--                <img class="img-fluid rounded mb-5" src="/img/blog/portfolio/safe.png" alt="" />-->
+<!--                &lt;!&ndash; Portfolio Modal - Text &ndash;&gt;-->
+<!--                <p class="mb-5">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Mollitia neque assumenda ipsam nihil, molestias magnam, recusandae quos quis inventore quisquam velit asperiores, vitae? Reprehenderit soluta, eos quod consequuntur itaque. Nam.</p>-->
+<!--                <button class="btn btn-primary" href="#" data-dismiss="modal">-->
+<!--                  <i class="fas fa-times fa-fw"></i>-->
+<!--                  Close Window-->
+<!--                </button>-->
+<!--              </div>-->
+<!--            </div>-->
+<!--          </div>-->
+<!--        </div>-->
+<!--      </div>-->
+<!--    </div>-->
+<!--  </div>-->
 
-  <!-- Portfolio Modal 6 -->
-  <div class="portfolio-modal modal fade" id="portfolioModal6" tabindex="-1" role="dialog" aria-labelledby="portfolioModal6Label" aria-hidden="true">
-    <div class="modal-dialog modal-xl" role="document">
-      <div class="modal-content">
-        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-          <span aria-hidden="true">
-            <i class="fas fa-times"></i>
-          </span>
-        </button>
-        <div class="modal-body text-center">
-          <div class="container">
-            <div class="row justify-content-center">
-              <div class="col-lg-8">
-                <!-- Portfolio Modal - Title -->
-                <h2 class="portfolio-modal-title text-secondary text-uppercase mb-0">Submarine</h2>
-                <!-- Icon Divider -->
-                <div class="divider-custom">
-                  <div class="divider-custom-line"></div>
-                  <div class="divider-custom-icon">
-                    <i class="fas fa-star"></i>
-                  </div>
-                  <div class="divider-custom-line"></div>
-                </div>
-                <!-- Portfolio Modal - Image -->
-                <img class="img-fluid rounded mb-5" src="/img/blog/portfolio/submarine.png" alt="" />
-                <!-- Portfolio Modal - Text -->
-                <p class="mb-5">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Mollitia neque assumenda ipsam nihil, molestias magnam, recusandae quos quis inventore quisquam velit asperiores, vitae? Reprehenderit soluta, eos quod consequuntur itaque. Nam.</p>
-                <button class="btn btn-primary" href="#" data-dismiss="modal">
-                  <i class="fas fa-times fa-fw"></i>
-                  Close Window
-                </button>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-  </div>
+<!--  &lt;!&ndash; Portfolio Modal 6 &ndash;&gt;-->
+<!--  <div class="portfolio-modal modal fade" id="portfolioModal6" tabindex="-1" role="dialog" aria-labelledby="portfolioModal6Label" aria-hidden="true">-->
+<!--    <div class="modal-dialog modal-xl" role="document">-->
+<!--      <div class="modal-content">-->
+<!--        <button type="button" class="close" data-dismiss="modal" aria-label="Close">-->
+<!--          <span aria-hidden="true">-->
+<!--            <i class="fas fa-times"></i>-->
+<!--          </span>-->
+<!--        </button>-->
+<!--        <div class="modal-body text-center">-->
+<!--          <div class="container">-->
+<!--            <div class="row justify-content-center">-->
+<!--              <div class="col-lg-8">-->
+<!--                &lt;!&ndash; Portfolio Modal - Title &ndash;&gt;-->
+<!--                <h2 class="portfolio-modal-title text-secondary text-uppercase mb-0">Submarine</h2>-->
+<!--                &lt;!&ndash; Icon Divider &ndash;&gt;-->
+<!--                <div class="divider-custom">-->
+<!--                  <div class="divider-custom-line"></div>-->
+<!--                  <div class="divider-custom-icon">-->
+<!--                    <i class="fas fa-star"></i>-->
+<!--                  </div>-->
+<!--                  <div class="divider-custom-line"></div>-->
+<!--                </div>-->
+<!--                &lt;!&ndash; Portfolio Modal - Image &ndash;&gt;-->
+<!--                <img class="img-fluid rounded mb-5" src="/img/blog/portfolio/submarine.png" alt="" />-->
+<!--                &lt;!&ndash; Portfolio Modal - Text &ndash;&gt;-->
+<!--                <p class="mb-5">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Mollitia neque assumenda ipsam nihil, molestias magnam, recusandae quos quis inventore quisquam velit asperiores, vitae? Reprehenderit soluta, eos quod consequuntur itaque. Nam.</p>-->
+<!--                <button class="btn btn-primary" href="#" data-dismiss="modal">-->
+<!--                  <i class="fas fa-times fa-fw"></i>-->
+<!--                  Close Window-->
+<!--                </button>-->
+<!--              </div>-->
+<!--            </div>-->
+<!--          </div>-->
+<!--        </div>-->
+<!--      </div>-->
+<!--    </div>-->
+<!--  </div>-->
 
   <!-- Bootstrap core JavaScript -->
   <script src="/vendor/blog/jquery/jquery.min.js"></script>
@@ -586,6 +710,8 @@
   <!-- Custom scripts for this template -->
   <script src="/js/blog/freelancer.min.js"></script>
 
+  <!-- Blog.js -->
+  <script src = "/js/blog/blog.js"></script>
 </body>
 
 </html>
