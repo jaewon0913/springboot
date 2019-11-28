@@ -32,6 +32,10 @@ dependencies {
     compile('org.springframework.boot:spring-boot-starter-web')
     compile('org.springframework.boot:spring-boot-starter-thymeleaf')
     compile('pl.allegro.tech.boot:handlebars-spring-boot-starter:0.2.15')
+   
+    compile('mysql:mysql-connector-java')
+    compile('org.springframework.boot:spring-boot-starter-jdbc')
+
     runtime('com.h2database:h2')
     compileOnly('org.projectlombok:lombok')
     annotationProcessor 'org.projectlombok:lombok:1.18.8'

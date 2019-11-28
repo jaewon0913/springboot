@@ -1,7 +1,10 @@
 spring:
     profiles:
         active: local # 기본 환경 세팅
-
+    jpa:
+        properties:
+            hibernate:
+                dialect: org.hibernate.dialect.MySQL5Dialect
 
 # local 환경
 ---
@@ -16,3 +19,21 @@ spring:
     h2:
         console:
             enabled: true
+
+server:
+    port: 8686
+
+# 운영 환경
+---
+spring.profiles: set1
+spring.profiles.include: real-db
+
+server:
+    port: 8681
+
+---
+spring.profiles: set2
+spring.profiles.include: real-db
+
+server:
+    port: 8682
