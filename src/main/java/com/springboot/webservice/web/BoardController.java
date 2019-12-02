@@ -20,7 +20,7 @@ public class BoardController {
 
         model.addAttribute("boardList",boardList);
 
-        return "/board/list";
+        return "board/list";
     }
 
     @GetMapping("/write")
@@ -41,7 +41,7 @@ public class BoardController {
         BoardDto boardDTO = boardService.getPost(no);
 
         model.addAttribute("boardDto", boardDTO);
-        return "/board/detail";
+        return "board/detail";
     }
 
     // 업데이트 이동
@@ -50,7 +50,7 @@ public class BoardController {
         BoardDto boardDTO = boardService.getPost(no);
 
         model.addAttribute("boardDto", boardDTO);
-        return "/board/update";
+        return "board/update";
     }
 
     // 업데이트
