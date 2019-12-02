@@ -32,12 +32,23 @@ dependencies {
     compile('org.springframework.boot:spring-boot-starter-web')
     compile('org.springframework.boot:spring-boot-starter-thymeleaf')
     compile('pl.allegro.tech.boot:handlebars-spring-boot-starter:0.2.15')
-   
-    compile('mysql:mysql-connector-java')
+
+    compile('org.springframework.boot:spring-boot-devtools')
+    compile('org.springframework.boot:spring-boot-starter-freemarker')
+    compile group: 'org.thymeleaf.extras', name: 'thymeleaf-extras-java8time', version: '2.1.0.RELEASE'
+
+    //jdbc
     compile('org.springframework.boot:spring-boot-starter-jdbc')
+    compile('mysql:mysql-connector-java')
+
+    //mybatis
+    compile('org.mybatis.spring.boot:mybatis-spring-boot-starter:1.1.1')
+    compile('org.mybatis:mybatis-spring')
+    compile('org.mybatis:mybatis')
 
     runtime('com.h2database:h2')
     compileOnly('org.projectlombok:lombok')
     annotationProcessor 'org.projectlombok:lombok:1.18.8'
     testCompile('org.springframework.boot:spring-boot-starter-test')
+    testCompile("junit:junit:4.+")
 }
