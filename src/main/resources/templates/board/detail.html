@@ -3,23 +3,135 @@
 <head>
     <meta charset="UTF-8" />
     <title>Title</title>
+
+    <!-- Custom fonts for this theme -->
+    <link href="/vendor/blog/fontawesome-free/css/all.min.css" rel="stylesheet" type="text/css" />
+    <link href="https://fonts.googleapis.com/css?family=Montserrat:400,700" rel="stylesheet" type="text/css" />
+    <link href="https://fonts.googleapis.com/css?family=Lato:400,700,400italic,700italic" rel="stylesheet" type="text/css" />
+
+    <!-- Theme CSS -->
+    <link href="/css/blog/freelancer.min.css" rel="stylesheet" />
+    <link href="/css/blog/blog.css" rel="stylesheet"/>
+
+    <!--부트스트랩 css 추가-->
+    <link rel="stylesheet" href="/css/lib/bootstrap.min.css"/>
+
+    <style type="text/css">
+        .table > tbody > tr > th {
+            text-align : center;
+        }
+    </style>
 </head>
-<body>
-    <p th:inline="text">작성일 : [[${#temporals.format(boardDto.modifiedDate, 'yyyy-MM-dd HH:mm')}]]</p>
+<body id = "page-top">
+    <nav class="navbar navbar-expand-lg bg-secondary text-uppercase fixed-top" id="mainNav">
+        <div class="container">
+            <a class="navbar-brand js-scroll-trigger" href="#page-top">Jaewon's 개발 공부 사이트 - 현재 진행형</a>
+            <button class="navbar-toggler navbar-toggler-right text-uppercase font-weight-bold bg-primary text-white rounded" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
+                Menu
+                <i class="fas fa-bars"></i>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarResponsive">
+                <ul class="navbar-nav ml-auto">
+                    <li class="nav-item mx-0 mx-lg-1">
+                        <a class="nav-link py-3 px-0 px-lg-3 rounded js-scroll-trigger" th:href="@{'/'}">MainHome</a>
+                    </li>
+                    <li class="nav-item mx-0 mx-lg-1">
+                        <a class="nav-link py-3 px-0 px-lg-3 rounded js-scroll-trigger" th:href="@{'/list'}">Board</a>
+                    </li>
+                    <li class="nav-item mx-0 mx-lg-1">
+                        <a class="nav-link py-3 px-0 px-lg-3 rounded js-scroll-trigger" href="#login" data-toggle="modal" data-target="#loginModal">Login</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
 
-    <p th:text="${boardDto.content}"></p>
+    <br/>
 
-    <!-- 수정/삭제 -->
-    <div>
-        <a th:href="@{'/board/edit/' + ${boardDto.id}}">
-            <button>수정</button>
-        </a>
+    <section class = "page-section">
+        <div class = "container">
+            <table class = "table table-bordered">
+                <th colspan="2">
+                    <a class = "btn btn-primary" href = "#" onclick="history.back(); return false;" style = "float: right">뒤로가기</a>
+                </th>
+                <tr>
+                    <th>제목 :</th>
+                    <td>
+                        <p th:text="${boardDto.title}"></p>
+                    </td>
+                </tr>
+                <tr>
+                    <th>작성자 :</th>
+                    <td>
+                        <p th:text="${boardDto.writer}"></p>
+                    </td>
+                </tr>
+                <tr>
+                    <th>내용 :</th>
+                    <td>
+                        <p th:text="${boardDto.content}"></p>
+                    </td>
+                </tr>
+                <tr>
+                    <th>작성일 :</th>
+                    <td>
+                        <p th:inline="text">[[${#temporals.format(boardDto.modifiedDate, 'yyyy-MM-dd HH:mm')}]]</p>
+                    </td>
+                </tr>
 
-        <form id="delete-form" th:action="@{'/board/' + ${boardDto.id}}" method="post">
-            <input type="hidden" name="_method" value="delete"/>
-            <button id="delete-btn">삭제</button>
-        </form>
+                <!-- 수정/삭제 -->
+                <tr align = "center">
+                    <td colspan="2">
+                        <button type = "button" class = "btn btn-secondary" data-toggle="modal" data-target="#updateModal">수정</button>
+
+                        <button type = "button" class = "btn btn-danger" id="btn-delete">삭제</button>
+                    </td>
+                </tr>
+            </table>
+        </div>
+    </section>
+
+    <!-- Modal 영역 -->
+    <div class="modal fade" id="updateModal" tabindex="-1" role="dialog" aria-labelledby="updateLabel" aria-hidden="true">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="updateLabel">게시글 수정</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    <form>
+                        <input type = "hidden" id = "id" th:value = "${boardDto.id}"/>
+                        <div class="form-group">
+                            <label for="title">제목</label>
+                            <input type="text" class="form-control" id="title" th:placeholder = "${boardDto.title}"/>
+                        </div>
+                        <div class="form-group">
+                            <label for="writer"> 작성자 </label>
+                            <input type="text" class="form-control" id="writer" th:value = "${boardDto.writer}" readonly="readonly"/>
+                        </div>
+                        <div class="form-group">
+                            <label for="content"> 내용 </label>
+                            <textarea class="form-control" id="content" th:placeholder="${boardDto.content}"></textarea>
+                        </div>
+                    </form>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-primary" id="btn-save">수정</button>
+                    <button type="button" class="btn btn-secondary" data-dismiss="modal">취소</button>
+                </div>
+            </div>
+        </div>
     </div>
+
+    <!--부트스트랩 js, jquery 추가-->
+    <script src="/js/lib/jquery.min.js"></script>
+    <script src="/js/lib/bootstrap.min.js"></script>
+
+    <!--custom js 추가-->
+    <script src="/js/blog/detail.js"></script>
 
     <!-- 변수 셋팅 -->
     <script th:inline="javascript">
@@ -28,7 +140,7 @@
         /*]]>*/
     </script>
 
-    <!-- script -->
-    <script th:inline="javascript" th:src="@{/js/board/board.js}"></script>
+<!--    &lt;!&ndash; script &ndash;&gt;-->
+<!--    <script th:inline="javascript" th:src="@{/js/board/board.js}"></script>-->
 </body>
 </html>

@@ -23,16 +23,19 @@ public class BoardController {
         return "board/list";
     }
 
-    @GetMapping("/write")
-    public String write(){
-        return "board/write";
-    }
+    // 모달창 사용으로 사용X
+//    @GetMapping("/write")
+//    public String write(){
+//        return "board/write";
+//    }
 
     @PostMapping("/write")
-    public String write(BoardDto boardDto){
-        boardService.savePost(boardDto);
+    @ResponseBody
+    public Long write(@RequestBody BoardDto boardDto){
+        //boardService.savePost(boardDto);
 
-        return "redirect:/list";
+        return boardService.savePost(boardDto);
+        //return "redirect:/list";
     }
 
     // 디테일 이동
@@ -44,27 +47,35 @@ public class BoardController {
         return "board/detail";
     }
 
-    // 업데이트 이동
-    @GetMapping("/board/edit/{no}")
-    public String edit(@PathVariable("no") Long no, Model model) {
-        BoardDto boardDTO = boardService.getPost(no);
-
-        model.addAttribute("boardDto", boardDTO);
-        return "board/update";
-    }
+    // 업데이트 이동(모달창 사용으로 사용X)
+//    @GetMapping("/board/edit/{no}")
+//    public String edit(@PathVariable("no") Long no, Model model) {
+//        BoardDto boardDTO = boardService.getPost(no);
+//
+//        model.addAttribute("boardDto", boardDTO);
+//        return "board/update";
+//    }
 
     // 업데이트
-    @PutMapping("/board/edit/{no}")
-    public String update(BoardDto boardDTO) {
-        boardService.savePost(boardDTO);
-
-        return "redirect:/list";
+    @PutMapping("/board/update/{no}")
+    @ResponseBody
+    public Long update(@RequestBody BoardDto boardDto){
+        return boardService.savePost(boardDto);
     }
 
-    @DeleteMapping("/board/{no}")
+//    @PutMapping("/board/edit/{no}")
+//    public String update2(BoardDto boardDTO) {
+//        System.out.println(boardDTO.toString());
+//        boardService.savePost(boardDTO);
+//
+//        return "redirect:/list";
+//    }
+
+    @DeleteMapping("/board/delete/{no}")
+    @ResponseBody
     public String delete(@PathVariable("no") Long no) {
         boardService.deletePost(no);
 
-        return "redirect:/list";
+        return "ok";
     }
 }

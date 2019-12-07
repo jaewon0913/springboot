@@ -61,4 +61,11 @@ public class BoardService {
     public void deletePost(Long num) {
         boardRepository.delete(num);
     }
+
+
+//    @Transactional
+//    public int updateBoard(BoardDto boardDto){
+//        return boardRepository.updateBoard(boardDto.getTitle(),boardDto.getContent(),boardDto.getId());
+//    }
+
 }
