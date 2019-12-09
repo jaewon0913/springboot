@@ -1,0 +1,191 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <title>Title</title>
+</head>
+
+<script src = "/js/blog/modal.js"></script>
+
+<body>
+
+<div class="portfolio-modal modal fade" id="portfolioModal1" tabindex="-1" role="dialog" aria-labelledby="portfolioModal1Label" aria-hidden="true">
+    <div class="modal-dialog modal-xl" role="document">
+        <div class="modal-content">
+            <button type="button" class="close" data-dismiss="modal" aria-label="Close" onclick="closeModal()">
+          <span aria-hidden="true">
+            <i class="fas fa-times"></i>
+          </span>
+            </button>
+            <div class="modal-body text-center" id = "awsmodal1">
+                <div class="container">
+                    <div class="row justify-content-center">
+                        <div class="col-lg-8">
+                            <!-- Portfolio Modal - Title -->
+                            <h2 class="portfolio-modal-title text-secondary text-uppercase mb-0">Portfolio Web Site</h2>
+                            <!-- Icon Divider -->
+                            <div class="divider-custom">
+                                <div class="divider-custom-line"></div>
+                                <div class="divider-custom-icon">
+                                    <i class="fas fa-star"></i>
+                                </div>
+                                <div class="divider-custom-line"></div>
+                            </div>
+                            <!-- Portfolio Modal - Image -->
+                            <img class="img-fluid rounded mb-5" src="/img/blog/portfolio/springboot/boot_img.png" alt="" />
+                            <!-- Portfolio Modal - Text -->
+                            <p style = "font-size: large">
+                                <strong>개인적으로 진행하는 Spring Boot + AWS를 활용한 웹 제작</strong>
+                            </p>
+                            <p class = "mb-5" style = "text-align : left">
+                                프로 젝트 : 포트폴리오 사이트 겸 SpringBoot + AWS 를 활용한 웹 서비스 출시<br/>
+                                개발 기간 : 2019.11.01 ~ 현재 진행형 (총 1명)<br/>
+                                개발 목표 : 포트폴리오 제작<br/>
+                                개발 환경<br/>
+                                - &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;OS &nbsp;&nbsp;&nbsp;&nbsp; : Mac OS<br/>
+                                - &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; IDE &nbsp;&nbsp;&nbsp;: IntelliJ IDEA Ultimate<br/>
+                                - 구현 언어 : Java, HTML5, CSS3, Java Script, MySQL<br/>
+                                - 사용 기술 : SpringBoot(Gradle) , Amazon Web Service(AWS - EC2, RDS, CodeDeploy, S3, Route 53)<br/>
+                                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Git(Github Desktop)<br/>
+                                <br/>
+                                비    고 : 계속해서 기능 추가 중 입니다.
+
+                            </p>
+
+                            <button class = "btn btn-primary" href="#" style = "float: left;" onclick="awsmodal_l1()">&lt;</button>
+
+                            <a class = "btn btn-primary" href = "https://github.com/jaewon0913/springboot">GitHub</a>
+                            <button class="btn btn-primary" href="#" data-dismiss="modal" onclick="closeModal()">
+                                Close Window
+                            </button>
+
+                            <button class = "btn btn-primary" href="#" style = "float: right;" onclick="awsmodal_r1()">&gt;</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- 옆 화면1 -->
+            <div class="modal-body text-center" id = "awsmodal2" style = "display: none;">
+                <div class="container">
+                    <div class="row justify-content-center">
+                        <div class="col-lg-8">
+                            <!-- Portfolio Modal - Title -->
+                            <h2 class="portfolio-modal-title text-secondary text-uppercase mb-0">Portfolio Web Site</h2>
+                            <!-- Icon Divider -->
+                            <div class="divider-custom">
+                                <div class="divider-custom-line"></div>
+                                <div class="divider-custom-icon">
+                                    <i class="fas fa-star"></i>
+                                </div>
+                                <div class="divider-custom-line"></div>
+                            </div>
+                            <!-- Portfolio Modal - Image -->
+                            <img class="img-fluid rounded mb-5" src="/img/blog/portfolio/springboot/boot_directory.png" alt="" />
+                            <!-- Portfolio Modal - Text -->
+                            <p style = "font-size: large">
+                                <strong>개인적으로 진행하는 Spring Boot + AWS를 활용한 웹 제작</strong>
+                            </p>
+                            <p class = "mb-5" style = "text-align : left">
+                                <strong>각 디렉터리 역할</strong> <br/>
+                                - Controller <br/>
+                                a) URL과 실행 함수를 매핑 <br/>
+                                b) 비즈니스 로직이 있는 service를 호출하여 비즈니스 로직 처리 <br/>
+                                c) 반환할 템플릿을 정의 및 JSON 등 으로 응답 <br/>
+                                - Service <br/>
+                                a) 비즈니스 로직을 구현 <br/>
+                                b) 데이터 처리(모델)를 담당하는 repository에서 데이터를 가져와서 controller에 넘겨주거나, 비즈니스 로직을 처리<br/>
+                                 - entity<br/>
+                                 a) DB 테이블과 매핑되는 객체(Entity)를 정의<br/>
+                                 b) JPA에서는 Entity를 통해 데이터를 조작함<br/>
+                                 - domain > repository<br/>
+                                 a) 데이터를 가져오거나 조작하는 함수를 정의 <br/>
+                                b) interface를 implements하여 미리 만들어진 함수를 사용할 수 있으며, 또한 직접 구현이 가능<br/>
+                                 - dto<br/>
+                                 a) Controller 와 Service 간에 주고 받을 객체를 정의하며, 최종적으로는 view에 뿌려줄 객체<br/>
+                                 b) Entity와 속성이 같을 수 있으나, 여러 Service를 거쳐야 하는 경우 dto의 몸집은 더 커진다.<br/>
+                                (ㄱ) AEntity에 a 속성, BEntity에 b 속성이 있을 때, ZDto에 a,b 속성으로 정의 될 수 있다. <br/>
+                                (ㄴ) entity와 dto를 분리한 이유는 Entity는 DB 테이블이 정의되어 있으므로, 데이터 전달 목적을 갖는 객체인 DTO를 정의하는 것이 좋다고 한다.<br/>
+                                <br/>
+                                <strong>Resources 디렉터리 역할</strong>  <br/>
+                                 - static<br/>
+                                 a) css, js, img 등의 정적 자원들을 모아놓은 디렉터리 <br/>
+                                - templates <br/>
+                                a) 템플릿을 모아놓은 디렉터리<br/>
+                                 b) Thymeleaf는 HTML을 사용
+                            </p>
+
+                            <button class = "btn btn-primary" href="#" style = "float: left;" onclick="awsmodal_l2()">&lt;</button>
+
+                            <a class = "btn btn-primary" href = "https://github.com/jaewon0913/springboot">GitHub</a>
+                            <button class="btn btn-primary" href="#" data-dismiss="modal" onclick="closeModal()">
+                                Close Window
+                            </button>
+
+                            <button class = "btn btn-primary" href="#" style = "float: right;" onclick="awsmodal_r2()">&gt;</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- 옆 화면2 -->
+            <div class="modal-body text-center" id = "awsmodal3" style = "display: none;">
+                <div class="container">
+                    <div class="row justify-content-center">
+                        <div class="col-lg-8">
+                            <!-- Portfolio Modal - Title -->
+                            <h2 class="portfolio-modal-title text-secondary text-uppercase mb-0">Portfolio Web Site</h2>
+                            <!-- Icon Divider -->
+                            <div class="divider-custom">
+                                <div class="divider-custom-line"></div>
+                                <div class="divider-custom-icon">
+                                    <i class="fas fa-star"></i>
+                                </div>
+                                <div class="divider-custom-line"></div>
+                            </div>
+                            <!-- Portfolio Modal - Image -->
+                            <img class="img-fluid rounded mb-5" src="/img/blog/portfolio/springboot/boot_thymeleaf.jpg" alt="" />
+                            <!-- Portfolio Modal - Text -->
+                            <p style = "font-size: large">
+                                <strong>개인적으로 진행하는 Spring Boot + AWS를 활용한 웹 제작</strong>
+                            </p>
+                            <p class = "mb-5" style = "text-align : left">
+                                <strong>Thymeleaf</strong><br/>
+                                 - 텍스트, HTML, XML, Javascript, CSS 그리고 텍스트를 생성할 수 있는 템플릿 엔진이다.<br/>
+                                 - 순수 HTML로 템플릿을 작성할 수 있다. <br/>
+                                - 템플릿을 반환하는 경우 클래스에 @RestController 대신 @Controller 어노테이션을 부여한다.<br/>
+                                 - 메소드의 Return 값으로 표시하는 템플릿의 경로를 지정한다. <br/>
+                                a) 템플릿 파일은 클래스 경로에 templates 패키지 아래에 위치하게 된다.<br/>
+                                 b) 컨트롤러 메소드가 Return 한 문자열이 templates 패키지에서 상대 경로가 된다.(확장자 생략 가능) <br/>
+                                - 화면 측에서 먼저 Thymeleaf에 대한 네임 스페이스를 정의 (xmlns : th) <br/>
+                                <br/>
+                                <strong>문법</strong><br/>
+                                - xmlns:th="http://www.thymeleaf.org"<br/>
+                                => IntelliJ에서 thymeleaf 문법 사용 시, 문법 에러가 발생하여 추가.<br/>
+                                (꼭 추가를 안해도 정상동작 하지만, 빨간줄이 싫어서 추가했습니다.)<br/>
+                                - th:insert<br/>
+                                => 헤더와 푸터처럼 다른 페이지를 현재 페이지에 삽입하는 역할을 한다. / JSP의 include와 같습니다.<br/>
+                                - th:href<br/>
+                                => thymeleaf에서 html 속성은 대부분 이처럼 th: 으로 바꿔서 사용할 수 있습니다.<br/>
+                                @{ } 의 의미는 애플리케이션이 설치된 경로를 기준으로 하는 상대경로 이다.<br/>
+                                코드에서 @{/board}는 URL이 http://localhost:8686/board 가 된다.
+                            </p>
+
+                            <button class = "btn btn-primary" href="#" style = "float: left;" onclick="awsmodal_l3()">&lt;</button>
+
+                            <a class = "btn btn-primary" href = "https://github.com/jaewon0913/springboot">GitHub</a>
+                            <button class="btn btn-primary" href="#" data-dismiss="modal" onclick="closeModal()">
+                                Close Window
+                            </button>
+
+                            <button class = "btn btn-primary" href="#" style = "float: right;" onclick="awsmodal_r3()">&gt;</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+</body>
+</html>
