@@ -14,28 +14,22 @@ import java.util.List;
 public class BoardController {
     private BoardService boardService;
 
-    @GetMapping("/list")
+    @GetMapping("/board/list")
     public String list(Model model){
         List<BoardDto> boardList = boardService.getBoardlist();
+
+        System.out.println(boardList.toString());
 
         model.addAttribute("boardList",boardList);
 
         return "board/list";
     }
 
-    // 모달창 사용으로 사용X
-//    @GetMapping("/write")
-//    public String write(){
-//        return "board/write";
-//    }
-
-    @PostMapping("/write")
+    @PostMapping("/board/write")
     @ResponseBody
     public Long write(@RequestBody BoardDto boardDto){
-        //boardService.savePost(boardDto);
 
         return boardService.savePost(boardDto);
-        //return "redirect:/list";
     }
 
     // 디테일 이동
@@ -47,15 +41,6 @@ public class BoardController {
         return "board/detail";
     }
 
-    // 업데이트 이동(모달창 사용으로 사용X)
-//    @GetMapping("/board/edit/{no}")
-//    public String edit(@PathVariable("no") Long no, Model model) {
-//        BoardDto boardDTO = boardService.getPost(no);
-//
-//        model.addAttribute("boardDto", boardDTO);
-//        return "board/update";
-//    }
-
     // 업데이트
     @PutMapping("/board/update/{no}")
     @ResponseBody
@@ -63,13 +48,6 @@ public class BoardController {
         return boardService.savePost(boardDto);
     }
 
-//    @PutMapping("/board/edit/{no}")
-//    public String update2(BoardDto boardDTO) {
-//        System.out.println(boardDTO.toString());
-//        boardService.savePost(boardDTO);
-//
-//        return "redirect:/list";
-//    }
 
     @DeleteMapping("/board/delete/{no}")
     @ResponseBody
@@ -78,5 +56,4 @@ public class BoardController {
 
         return "ok";
     }
-
 }

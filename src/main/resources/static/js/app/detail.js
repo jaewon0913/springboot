@@ -26,7 +26,6 @@ var detail = {
         }).done(function() {
             alert('글이 수정되었습니다.');
             location.reload();
-            //location.replace('/list');
         }).fail(function (error) {
             alert("에러에러에러!!!");
         });
@@ -43,7 +42,7 @@ var detail = {
         }).done(function(msg){
             if(msg == "ok"){
                 alert('글이 삭제되었습니다.');
-                location.replace('/list');
+                location.replace('/board/list');
             }
         }).fail(function (error) {
             alert("에러발생!!!");

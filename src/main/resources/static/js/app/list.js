@@ -14,13 +14,13 @@ var list = {
 
         $.ajax({
             type: 'POST',
-            url: '/write',
+            url: '/board/write',
             dataType: 'json',
             contentType:'application/json; charset=utf-8',
             data: JSON.stringify(data)
         }).done(function() {
             alert('글이 등록되었습니다.');
-            location.replace('/list');
+            location.replace('/board/list');
         }).fail(function (error) {
             alert("에러에러에러!!!");
         });

@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="ko" lang="ko">
+<head>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta http-equiv="Content-Script-Type" content="text/javascript" />
+    <meta http-equiv="Content-Style-Type" content="text/css" />
+    <meta name="viewport" content="width=device-width" />
+    <title>에러페이지</title>
+    <style type="text/css">
+        body{margin:0;padding:0}
+        .err {text-align:center; margin-top:200px;}
+
+        @media screen and (max-width:1024px){
+            .err img{width:100%}
+        }
+
+    </style>
+</head>
+
+<body>
+
+<div class="err">
+    <a href="javascript:history.back()"><img src="/etc/error_img.jpeg" alt="서비스 이용에 불편을 드려 죄송합니다. 요청하신 페이지가 존재하지 않거나 오류가 발생했습니다. 잠시 후에 다시 접속을 시도해 주십시오." /></a>
+</div>
+</body>
+</html>

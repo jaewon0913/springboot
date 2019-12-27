@@ -1,6 +1,6 @@
 package com.springboot.webservice.board.dto;
 
-import com.springboot.webservice.board.Entity.BoardEntity;
+import com.springboot.webservice.board.domain.entity.BoardEntity;
 import lombok.*;
 
 import java.time.LocalDateTime;
@@ -24,6 +24,7 @@ public class BoardDto {
                 .title(title)
                 .content(content)
                 .build();
+
         return build;
     }
 

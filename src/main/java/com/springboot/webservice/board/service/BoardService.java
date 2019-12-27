@@ -1,12 +1,9 @@
 package com.springboot.webservice.board.service;
 
-import com.springboot.webservice.board.Entity.BoardEntity;
 import com.springboot.webservice.board.domain.BoardRepository;
+import com.springboot.webservice.board.domain.entity.BoardEntity;
 import com.springboot.webservice.board.dto.BoardDto;
 import lombok.AllArgsConstructor;
-import org.springframework.data.domain.Page;
-import org.springframework.data.domain.PageRequest;
-import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
 
 import javax.transaction.Transactional;
@@ -57,18 +54,20 @@ public class BoardService {
 
     @Transactional
     public Long savePost(BoardDto boardDto) {
+
+        System.out.println(boardDto.getId());
+        System.out.println(boardDto.getTitle());
+        System.out.println(boardDto.getContent());
+        System.out.println(boardDto.getWriter());
+        System.out.println(boardDto.toString());
+
         return boardRepository.save(boardDto.toEntity()).getId();
     }
 
     @Transactional
     public void deletePost(Long num) {
-        boardRepository.delete(num);
+        boardRepository.deleteById(num);
     }
 
-
-//    @Transactional
-//    public int updateBoard(BoardDto boardDto){
-//        return boardRepository.updateBoard(boardDto.getTitle(),boardDto.getContent(),boardDto.getId());
-//    }
 
 }

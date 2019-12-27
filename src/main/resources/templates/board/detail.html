@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
+<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml" xmlns:sec="http://www.w3.org/1999/xhtml">
 <head>
     <meta charset="UTF-8" />
     <title>Title</title>
@@ -12,9 +12,6 @@
     <!-- Theme CSS -->
     <link href="/css/blog/freelancer.min.css" rel="stylesheet" />
     <link href="/css/blog/blog.css" rel="stylesheet"/>
-
-    <!--부트스트랩 css 추가-->
-    <link rel="stylesheet" href="/css/lib/bootstrap.min.css"/>
 
     <style type="text/css">
         .table > tbody > tr > th {
@@ -36,10 +33,16 @@
                         <a class="nav-link py-3 px-0 px-lg-3 rounded js-scroll-trigger" th:href="@{'/'}">MainHome</a>
                     </li>
                     <li class="nav-item mx-0 mx-lg-1">
-                        <a class="nav-link py-3 px-0 px-lg-3 rounded js-scroll-trigger" th:href="@{'/list'}">Board</a>
+                        <a class="nav-link py-3 px-0 px-lg-3 rounded js-scroll-trigger" th:href="@{'/board/list'}">Board</a>
                     </li>
-                    <li class="nav-item mx-0 mx-lg-1">
+                    <li sec:authorize="isAnonymous()" class="nav-item mx-0 mx-lg-1">
                         <a class="nav-link py-3 px-0 px-lg-3 rounded js-scroll-trigger" href="#login" data-toggle="modal" data-target="#loginModal">Login</a>
+                    </li>
+                    <li sec:authorize="isAuthenticated()" class="nav-item mx-0 mx-lg-1">
+                        <a class="nav-link py-3 px-0 px-lg-3 rounded js-scroll-trigger"><span sec:authentication="name"></span>님</a>
+                    </li>
+                    <li sec:authorize="isAuthenticated()" class="nav-item mx-0 mx-lg-1">
+                        <a class="nav-link py-3 px-0 px-lg-3 rounded js-scroll-trigger" href="/user/logout">Logout</a>
                     </li>
                 </ul>
             </div>
@@ -52,7 +55,7 @@
         <div class = "container">
             <table class = "table table-bordered">
                 <th colspan="2">
-                    <a class = "btn btn-primary" href = "#" onclick="history.back(); return false;" style = "float: right">뒤로가기</a>
+                    <a class = "btn btn-primary" href = "/board/list" style = "float: right">뒤로가기</a>
                 </th>
                 <tr>
                     <th>제목 :</th>
@@ -101,7 +104,7 @@
                         <span aria-hidden="true">&times;</span>
                     </button>
                 </div>
-                <div class="modal-body">
+                <div class="modal-body" style = "padding-top: 0px; padding-bottom:0px;">
                     <form>
                         <input type = "hidden" id = "id" th:value = "${boardDto.id}"/>
                         <div class="form-group">
@@ -118,7 +121,7 @@
                         </div>
                     </form>
                 </div>
-                <div class="modal-footer">
+                <div class="modal-footer" style = "padding-top: 0px; padding-bottom:10px;">
                     <button type="button" class="btn btn-primary" id="btn-save">수정</button>
                     <button type="button" class="btn btn-secondary" data-dismiss="modal">취소</button>
                 </div>
@@ -126,12 +129,22 @@
         </div>
     </div>
 
-    <!--부트스트랩 js, jquery 추가-->
-    <script src="/js/lib/jquery.min.js"></script>
-    <script src="/js/lib/bootstrap.min.js"></script>
+    <!-- Bootstrap core JavaScript -->
+    <script src="/vendor/blog/jquery/jquery.min.js"></script>
+    <script src="/vendor/blog/bootstrap/js/bootstrap.bundle.min.js"></script>
+
+    <!-- Plugin JavaScript -->
+    <script src="/vendor/blog/jquery-easing/jquery.easing.min.js"></script>
+
+    <!-- Contact Form JavaScript -->
+    <script src="/js/blog/jqBootstrapValidation.min.js"></script>
+    <script src="/js/blog/contact_me.min.js"></script>
+
+    <!-- Custom scripts for this template -->
+    <script src="/js/blog/freelancer.min.js"></script>
 
     <!--custom js 추가-->
-    <script src="/js/blog/detail.js"></script>
+    <script src="/js/app/detail.js"></script>
 
     <!-- 변수 셋팅 -->
     <script th:inline="javascript">
@@ -139,6 +152,8 @@
         var boardDto = /*[[${boardDto}]]*/ "";
         /*]]>*/
     </script>
+
+    <div th:replace="modal/user_modal"></div>
 
 <!--    &lt;!&ndash; script &ndash;&gt;-->
 <!--    <script th:inline="javascript" th:src="@{/js/board/board.js}"></script>-->

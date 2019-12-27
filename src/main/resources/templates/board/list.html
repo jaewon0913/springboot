@@ -1,8 +1,8 @@
 <!DOCTYPE html>
-<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<html lang="ko" xmlns:th="http://www.w3.org/1999/xhtml" xmlns:sec="http://www.w3.org/1999/xhtml">
 <head>
     <meta charset="UTF-8"/>
-    <title>Title</title>
+    <title>Jaewon's WebPage(Board)</title>
 
     <!-- Custom fonts for this theme -->
     <link href="/vendor/blog/fontawesome-free/css/all.min.css" rel="stylesheet" type="text/css" />
@@ -13,8 +13,6 @@
     <link href="/css/blog/freelancer.min.css" rel="stylesheet" />
     <link href="/css/blog/blog.css" rel="stylesheet"/>
 
-    <!--부트스트랩 css 추가-->
-    <link rel="stylesheet" href="/css/lib/bootstrap.min.css"/>
 </head>
 <body id="page-top">
     <nav class="navbar navbar-expand-lg bg-secondary text-uppercase fixed-top" id="mainNav">
@@ -30,10 +28,16 @@
                         <a class="nav-link py-3 px-0 px-lg-3 rounded js-scroll-trigger" th:href="@{'/'}">MainHome</a>
                     </li>
                     <li class="nav-item mx-0 mx-lg-1">
-                        <a class="nav-link py-3 px-0 px-lg-3 rounded js-scroll-trigger" th:href="@{'/list'}">Board</a>
+                        <a class="nav-link py-3 px-0 px-lg-3 rounded js-scroll-trigger" th:href="@{'/board/list'}">Board</a>
                     </li>
-                    <li class="nav-item mx-0 mx-lg-1">
+                    <li sec:authorize="isAnonymous()" class="nav-item mx-0 mx-lg-1">
                         <a class="nav-link py-3 px-0 px-lg-3 rounded js-scroll-trigger" href="#login" data-toggle="modal" data-target="#loginModal">Login</a>
+                    </li>
+                    <li sec:authorize="isAuthenticated()" class="nav-item mx-0 mx-lg-1">
+                        <a class="nav-link py-3 px-0 px-lg-3 rounded js-scroll-trigger"><span sec:authentication="name"></span>님</a>
+                    </li>
+                    <li sec:authorize="isAuthenticated()" class="nav-item mx-0 mx-lg-1">
+                        <a class="nav-link py-3 px-0 px-lg-3 rounded js-scroll-trigger" href="/user/logout">Logout</a>
                     </li>
                 </ul>
             </div>
@@ -44,9 +48,6 @@
     <div class = "container">
         <br/><br/>
         <h3>CRUD 기능 정상 작동(O) / 로그인 확장, 댓글, 페이징 추가 예정</h3>
-
-        <!-- @{/write}는 URL이 http://localhost:8686/write -->
-<!--        <a th:href="@{/write}">글 쓰기</a>-->
 
         <table class = "table table-horizontal table-bordered">
             <thead class = "thead-strong">
@@ -72,7 +73,7 @@
                         <span th:text="${board.writer}"/>
                     </td>
                     <td>
-                        <span th:text="${#temporals.format(board.modifiedDate, 'yyyy-MM-dd HH:mm')}"/>
+                        <span th:text="${#temporals.format(board.modifiedDate, 'yyyy-MM-dd HH:mm')}" />
                     </td>
                 </tr>
             </tbody>
@@ -92,7 +93,7 @@
                         <span aria-hidden="true">&times;</span>
                     </button>
                 </div>
-                <div class="modal-body">
+                <div class="modal-body" style = "padding-top: 0px; padding-bottom:0px;">
                     <form>
                         <div class="form-group">
                             <label for="title">제목</label>
@@ -100,7 +101,8 @@
                         </div>
                         <div class="form-group">
                             <label for="writer"> 작성자 </label>
-                            <input type="text" class="form-control" id="writer" placeholder="작성자를 입력하세요"/>
+                            <input sec:authorize="isAnonymous()" type="text" class="form-control" id="writer" disabled = disabled value = "Guset" />
+                            <input sec:authorize="isAuthenticated()" type="text" class="form-control" id="writer" disabled = disabled th:value = "@{${#authentication.name}}"/>
                         </div>
                         <div class="form-group">
                             <label for="content"> 내용 </label>
@@ -108,7 +110,7 @@
                         </div>
                     </form>
                 </div>
-                <div class="modal-footer">
+                <div class="modal-footer" style = "padding-top: 0px; padding-bottom: 10px;">
                     <button type="button" class="btn btn-secondary" data-dismiss="modal">취소</button>
                     <button type="button" class="btn btn-primary" id="btn-save">등록</button>
                 </div>
@@ -116,11 +118,22 @@
         </div>
     </div>
 
-    <!--부트스트랩 js, jquery 추가-->
-    <script src="/js/lib/jquery.min.js"></script>
-    <script src="/js/lib/bootstrap.min.js"></script>
+    <!-- Bootstrap core JavaScript -->
+    <script src="/vendor/blog/jquery/jquery.min.js"></script>
+    <script src="/vendor/blog/bootstrap/js/bootstrap.bundle.min.js"></script>
+
+    <!-- Plugin JavaScript -->
+    <script src="/vendor/blog/jquery-easing/jquery.easing.min.js"></script>
+
+    <!-- Contact Form JavaScript -->
+    <script src="/js/blog/jqBootstrapValidation.min.js"></script>
+    <script src="/js/blog/contact_me.min.js"></script>
+
+    <!-- Custom scripts for this template -->
+    <script src="/js/blog/freelancer.min.js"></script>
 
     <!--custom js 추가-->
-    <script src="/js/blog/list.js"></script>
+    <script src="/js/app/list.js"></script>
+    <div th:replace="modal/user_modal"></div>
 </body>
 </html>

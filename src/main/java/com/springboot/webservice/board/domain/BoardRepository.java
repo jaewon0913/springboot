@@ -1,6 +1,6 @@
 package com.springboot.webservice.board.domain;
 
-import com.springboot.webservice.board.Entity.BoardEntity;
+import com.springboot.webservice.board.domain.entity.BoardEntity;
 import org.springframework.data.jpa.repository.JpaRepository;
 
 import java.util.Optional;
