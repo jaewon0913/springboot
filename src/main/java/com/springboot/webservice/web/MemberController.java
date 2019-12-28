@@ -30,7 +30,7 @@ public class MemberController {
     //  접근 거부 페이지
     @GetMapping("/user/error")
     public String dispDenied() {
-        return "etc/error";
+        return "redirect:/";
     }
 
     //  아이디 중복 체크
