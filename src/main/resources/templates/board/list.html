@@ -1,7 +1,8 @@
 <!DOCTYPE html>
 <html lang="ko" xmlns:th="http://www.w3.org/1999/xhtml" xmlns:sec="http://www.w3.org/1999/xhtml">
 <head>
-    <meta charset="UTF-8"/>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
     <title>Jaewon's WebPage(Board)</title>
 
     <!-- Custom fonts for this theme -->
@@ -45,24 +46,24 @@
     </nav>
 
     <section class = "page-section">
-    <div class = "container">
-        <br/><br/>
-        <h3>CRUD 기능 정상 작동(O) / 댓글, 페이징 추가 예정</h3>
+        <div class = "container">
+            <br/><br/>
+            <h3>CRUD, 로그인 확장, 페이징(O) / 댓글 기능 추가 예정</h3>
 
-        <table class = "table table-horizontal table-bordered">
-            <thead class = "thead-strong">
+            <table class = "table table-horizontal table-bordered">
+                <thead class = "thead-strong">
                 <tr>
                     <th>번호</th>
                     <th>제목</th>
                     <th>작성자</th>
                     <th>작성날짜</th>
                 </tr>
-            </thead>
+                </thead>
 
-            <tbody id = "tbody">
-                <tr th:each="board: ${boardList}">
+                <tbody id = "tbody">
+                <tr th:each="board ,list: ${boardList}">
                     <td>
-                        <span th:text="${board.id}"/>
+                        <span th:text="${boardList.totalElements} - ${list.index} -${boardList.number}*10"/>
                     </td>
                     <td>
                         <a th:href="@{'/board/'+${board.id}}">
@@ -76,11 +77,45 @@
                         <span th:text="${#temporals.format(board.modifiedDate, 'yyyy-MM-dd HH:mm')}" />
                     </td>
                 </tr>
-            </tbody>
-        </table>
+                </tbody>
+            </table>
 
-        <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#writeModal" style="float : right;">글 등록</button>
-    </div>
+            <div class = "row justify-content-center">
+                <nav>
+                    <ul class = "pagination" th:with="start=${T(Math).floor(boardList.number/10)*10 + 1},
+                            last=(${start + 9 < boardList.totalPages ? start + 9 : boardList.totalPages})">
+                        <li>
+                            <a th:href="@{/board/list(page=1)}" aria-label="First" style="color: black;">
+                                <span aria-hidden="true">First</span>
+                            </a>
+                        </li>
+                        &nbsp;&nbsp;&nbsp;
+                        <li th:class="${boardList.first} ? 'disabled'">
+                            <a th:href="${boardList.first} ? '#' :@{/board/list(page=${boardList.number})}" aria-label="Previous" style="color: black;">
+                                <span aria-hidden="true">&lt;</span>
+                            </a>
+                        </li>
+                        &nbsp;&nbsp;&nbsp;
+                        <li th:each="page: ${#numbers.sequence(start, last)}" th:class="${page == boardList.number + 1} ? 'active'">
+                            <a th:text="${page}" th:href="@{/board/list(page=${page})}" style="color: black;"></a>
+                            &nbsp;&nbsp;&nbsp;
+                        </li>
+                        <li th:class="${boardList.last} ? 'disabled'">
+                            <a th:href="${boardList.last} ? '#' : @{/board/list(page=${boardList.number + 2})}" aria-label="Next" style="color: black;">
+                                <span aria-hidden="true">&gt;</span>
+                            </a>
+                        </li>
+                        &nbsp;&nbsp;&nbsp;
+                        <li>
+                            <a th:href="@{/board/list(page=${boardList.totalPages})}" aria-label="Last" style="color: black;">
+                                <span aria-hidden="true">Last</span>
+                            </a>
+                        </li>
+                    </ul>
+                </nav>
+            </div>
+            <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#writeModal" style="float : right;">글 등록</button>
+        </div>
     </section>
 
     <!-- Modal 영역 -->
@@ -118,23 +153,22 @@
         </div>
     </div>
 
-    <!-- Bootstrap core JavaScript -->
-    <script src="/vendor/blog/jquery/jquery.min.js"></script>
-    <script src="/vendor/blog/bootstrap/js/bootstrap.bundle.min.js"></script>
+<!-- Bootstrap core JavaScript -->
+<script src="/vendor/blog/jquery/jquery.min.js"></script>
+<script src="/vendor/blog/bootstrap/js/bootstrap.bundle.min.js"></script>
 
-    <!-- Plugin JavaScript -->
-    <script src="/vendor/blog/jquery-easing/jquery.easing.min.js"></script>
+<!-- Plugin JavaScript -->
+<script src="/vendor/blog/jquery-easing/jquery.easing.min.js"></script>
 
-    <!-- Contact Form JavaScript -->
-    <script src="/js/blog/jqBootstrapValidation.min.js"></script>
-    <script src="/js/blog/contact_me.min.js"></script>
+<!-- Contact Form JavaScript -->
+<script src="/js/blog/jqBootstrapValidation.min.js"></script>
+<script src="/js/blog/contact_me.min.js"></script>
 
-    <!-- Custom scripts for this template -->
-    <script src="/js/blog/freelancer.min.js"></script>
+<!-- Custom scripts for this template -->
+<script src="/js/blog/freelancer.min.js"></script>
 
-    <!--custom js 추가-->
-    <script src="/js/app/list.js"></script>
-    <script src = "/js/app/user.js"></script>
+<!--custom js 추가-->
+<script src="/js/app/list.js"></script>
 
     <div th:replace="modal/user_modal"></div>
 </body>
